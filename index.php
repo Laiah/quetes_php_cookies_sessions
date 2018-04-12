@@ -1,9 +1,23 @@
-<?php require 'inc/head.php'; ?>
+<?php
+require 'inc/head.php';
+if (!isset($_SESSION['loginName'])) {
+    header('Location: login.php');
+}
+$cart = [];
+if (isset($_GET['add_to_cart'])) {
+    $cart[] = $_GET['add_to_cart'];
+    foreach ($cart as $cookie) {
+        setcookie('cart'. $cookie, "$cookie");
+    }
+
+
+}
+?>
 <section class="cookies container-fluid">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
       <figure class="thumbnail text-center">
-        <img src="assets/img/product-46.jpg" alt="cookies choclate chips" class="img-responsive">
+        <img src="assets/img/product-46.jpg" alt="cookies chocolate chips" class="img-responsive">
         <figcaption class="caption">
           <h3>Pecan nuts</h3>
           <p>Cooked by Penny !</p>
@@ -15,7 +29,7 @@
     </div>
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
       <figure class="thumbnail text-center">
-        <img src="assets/img/product-36.jpg" alt="cookies choclate chips" class="img-responsive">
+        <img src="assets/img/product-36.jpg" alt="cookies chocolate chips" class="img-responsive">
         <figcaption class="caption">
           <h3>Chocolate chips</h3>
           <p>Cooked by Bernadette !</p>
@@ -27,7 +41,7 @@
     </div>
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
       <figure class="thumbnail text-center">
-        <img src="assets/img/product-58.jpg" alt="cookies choclate chips" class="img-responsive">
+        <img src="assets/img/product-58.jpg" alt="cookies chocolate chips" class="img-responsive">
         <figcaption class="caption">
           <h3>Chocolate cookie</h3>
           <p>Cooked by Bernadette !</p>
