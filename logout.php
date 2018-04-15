@@ -7,6 +7,5 @@
  */
 require "inc/head.php";
 unset($_SESSION['loginName']);
-if (empty($_SESSION)) {
-    header('Location: login.php');
-}
+header('Location: index.php');
+

@@ -1,8 +1,6 @@
 <?php
 require 'inc/head.php';
-if (!isset($_SESSION['loginName'])) {
-    header('Location: login.php');
-}
+
 $cart = [];
 if (isset($_GET['add_to_cart'])) {
     $cart[] = $_GET['add_to_cart'];
